@@ -1,12 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author LucasCarvalhoPC
  */
 
 /**
- *
- * @author Aluno
+ *  Esta é a Classe Aluno, onde são criados os atributos e construtores para criação de objetos "aluno".
+ * Junto dela existem os métodos getters e Setters, que são métodos para acessar ou modificar os atributos de aluno.
+ * 
  */
 public class Aluno {
     private String nome;
@@ -16,7 +16,10 @@ public class Aluno {
     private double freq;
     private double PF;
     private String Situacao;
-
+/*
+ * Construtor da Classe Aluno, com os seus devidos atributos 
+ * 
+ */
     public Aluno(String nome, double P1, double ProjAula, double Trabalho, double freq, double PF, String Situacao) {
         this.nome = nome;
         this.P1 = P1;
@@ -27,7 +30,11 @@ public class Aluno {
         this.Situacao = Situacao;
     }
    
-    
+    /*
+ * 
+ * Métodos getters and Setters
+ * 
+ */
         
     public String getNome() {
         return nome;

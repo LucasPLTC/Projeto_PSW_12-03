@@ -6,22 +6,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  *
- * @author Aluno
+ * @author LucasCarvalhoPC
+ */
+
+/**
+ *Esta Classe contém os métodos doGet e doPost que se relacionam com o servlet. 
+ *Enviam e recebem as requisições, e no caso desta, também trata os dados recebidos e também imprime no navegador em uma tabela.  
+ *
  */
 @WebServlet("/RequestServlet")
 public class RequestServlet extends HttpServlet{
     
     String sit;
     ArrayList<Aluno> listaAluno = new ArrayList<Aluno>();
-    
+    /**
+    *
+    * Método doget: recebe os parâmetros enviados da página web pelo doPost e Trata os mesmos para imprimir na tela o resultado deles.
+    */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         /*String aluno = req.getParameter("aluno");
@@ -40,7 +45,10 @@ public class RequestServlet extends HttpServlet{
         }else if (acao.equals("")){
             req.getRequestDispatcher("/logout.html").forward(req, resp);
         }*/
-        
+ /**
+ *  Este trecho trata os atributos de aluno recebidos pelo Index.html,
+ *  e os manipula de acordo com as regras de aprovação, guardando numa lista de "Alunos" com todos os dados e a situação final.
+ */
        double media1 = 0.7 * ((P1 + Trabalho) / 2.0) + ProjAula * 0.3;
        boolean pf = false;
         
@@ -81,7 +89,10 @@ public class RequestServlet extends HttpServlet{
         req.getServletContext().setAttribute("Aluno", listaAluno);
         
         
-        
+ /**
+ *
+ * Este método imprime na tela a tabela com os alunos em formato HTML.
+ */
         
         resp.getWriter().print("<html>");
         resp.getWriter().print("<body>");
@@ -122,7 +133,10 @@ public class RequestServlet extends HttpServlet{
         
         
 }
-
+/**
+ *Método doPost, que recebe a requisição e os dados da pagina web e chama o doGet passando-os como atributos.
+ * 
+ */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req,resp);
